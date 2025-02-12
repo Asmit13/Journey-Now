@@ -24,10 +24,21 @@ app.use(
       }
     },
     credentials: true, // Allow cookies and authentication headers
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Origin",
+    allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept, Authorization",
   })
 );
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*"); // Allow all origins
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  
+    // Handle preflight requests (Important for CORS)
+    if (req.method === "OPTIONS") {
+      return res.sendStatus(204);
+    }
+  
+    next();
+  });
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
