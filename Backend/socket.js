@@ -3,12 +3,13 @@ const userModel = require('./models/user.model');
 const captainModel = require('./models/captain.model');
 
 let io;
+const allowedOrigins = ["https://journeynow.vercel.app"];
 
 function initializeSocket(server) {
     io = socketIo(server, {
         cors: {
-            origin: '*',
-            methods: [ 'GET', 'POST' ]
+            origin: allowedOrigins, // ✅ Match Express CORS
+            credentials: true
         }
     });
 
