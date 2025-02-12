@@ -36,7 +36,7 @@ const Home = () => {
   const [ride, setRide] = useState(null);
 
   const navigate = useNavigate();
-
+  axios.defaults.withCredentials = true;
   const { socket } = useContext(SocketContext);
   const { user } = useContext(UserDataContext);
 
