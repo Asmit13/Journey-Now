@@ -25,7 +25,7 @@ app.use(
     },
     credentials: true, // Allow cookies and authentication headers
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept, Authorization",
+    allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Origin",
   })
 );
 
