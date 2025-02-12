@@ -13,7 +13,8 @@ module.exports.authUser = async (req, res, next) => {
     }
 
 
-    const isBlacklisted = await blackListTokenModel.findOne({ token: token });
+    // const isBlacklisted = await blackListTokenModel.findOne({ token: token });
+    const isBlacklisted = false;
 
     if (isBlacklisted) {
         return res.status(401).json({ message: 'Unauthorized' });
@@ -41,7 +42,8 @@ module.exports.authCaptain = async (req, res, next) => {
         return res.status(401).json({ message: 'Unauthorized' });
     }
 
-    const isBlacklisted = await blackListTokenModel.findOne({ token: token });
+    // const isBlacklisted = await blackListTokenModel.findOne({ token: token });
+    const isBlacklisted = false;
 
 
 

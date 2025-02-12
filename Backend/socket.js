@@ -3,7 +3,9 @@ const userModel = require('./models/user.model');
 const captainModel = require('./models/captain.model');
 
 let io;
-const allowedOrigins = ["https://journeynow.vercel.app"];
+ const allowedOrigins = ["https://journeynow.vercel.app"];
+// const allowedOrigins = [ "http://localhost:5173"];
+
 
 function initializeSocket(server) {
     io = socketIo(server, {
