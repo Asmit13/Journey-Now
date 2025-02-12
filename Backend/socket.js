@@ -10,7 +10,8 @@ function initializeSocket(server) {
         cors: {
             origin: allowedOrigins, // ✅ Match Express CORS
             credentials: true
-        }
+        },
+        transports: ["websocket", "polling"]
     });
 
     io.on('connection', (socket) => {
