@@ -8,7 +8,7 @@ const allowedOrigins = ["https://journeynow.vercel.app"];
 function initializeSocket(server) {
     io = socketIo(server, {
         cors: {
-            origin: allowedOrigins, // ✅ Match Express CORS
+            origin: "*", // ✅ Match Express CORS
             credentials: true
         },
         transports: ["polling"]

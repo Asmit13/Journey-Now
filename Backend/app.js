@@ -16,7 +16,7 @@ const allowedOrigins = ["https://journeynow.vercel.app"];
 
 app.use(
     cors({
-      origin: allowedOrigins,
+      origin: "*",
       credentials: true,
     })
   );
