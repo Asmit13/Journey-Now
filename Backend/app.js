@@ -12,7 +12,23 @@ const rideRoutes = require('./routes/ride.routes');
 
 connectToDb();
 
-app.use(cors());
+const allowedOrigins = ["https://journeynow.vercel.app/"]; // Replace with your frontend URL
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true, // Allow cookies and authentication headers
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept, Authorization",
+  })
+);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -20,7 +36,7 @@ app.use(cookieParser());
 
 
 app.get('/', (req, res) => {
-    res.send('Hello World');
+    res.send('Hi, Asmit. Backend is Up........');
 });
 
 app.use('/users', userRoutes);
