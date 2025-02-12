@@ -6,6 +6,7 @@ import axios from 'axios'
 const CaptainProtectWrapper = ({
     children
 }) => {
+    axios.defaults.withCredentials = true;
 
     const token = localStorage.getItem('token')
     const navigate = useNavigate()
@@ -19,6 +20,7 @@ const CaptainProtectWrapper = ({
         if (!token) {
             navigate('/captain-login')
         }
+    axios.defaults.withCredentials = true;
 
         axios.get(`${import.meta.env.VITE_BASE_URL}/captains/profile`, {
             headers: {

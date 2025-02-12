@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 const FinishRide = (props) => {
 
     const navigate = useNavigate()
-
+    axios.defaults.withCredentials = true;
     async function endRide() {
         const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/rides/end-ride`, {
 

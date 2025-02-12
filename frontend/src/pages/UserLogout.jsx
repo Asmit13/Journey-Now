@@ -6,6 +6,7 @@ export const UserLogout = () => {
 
     const token = localStorage.getItem('token')
     const navigate = useNavigate()
+    axios.defaults.withCredentials = true;
 
     axios.get(`${import.meta.env.VITE_API_URL}/users/logout`, {
         headers: {

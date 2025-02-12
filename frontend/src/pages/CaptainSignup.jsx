@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 const CaptainSignup = () => {
+    axios.defaults.withCredentials = true;
 
   const navigate = useNavigate()
 

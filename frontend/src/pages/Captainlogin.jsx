@@ -8,11 +8,12 @@ const Captainlogin = () => {
 
   const [ email, setEmail ] = useState('')
   const [ password, setPassword ] = useState('')
-
+  axios.defaults.withCredentials = true;
   const { captain, setCaptain } = React.useContext(CaptainDataContext)
   const navigate = useNavigate()
 
 
+  axios.defaults.withCredentials = true;
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -20,7 +21,6 @@ const Captainlogin = () => {
       email: email,
       password
     }
-
     const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/captains/login`, captain)
 
     if (response.status === 200) {

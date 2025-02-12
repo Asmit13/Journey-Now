@@ -10,6 +10,7 @@ const UserProtectWrapper = ({
     const navigate = useNavigate()
     const { user, setUser } = useContext(UserDataContext)
     const [ isLoading, setIsLoading ] = useState(true)
+    axios.defaults.withCredentials = true;
 
     useEffect(() => {
         if (!token) {

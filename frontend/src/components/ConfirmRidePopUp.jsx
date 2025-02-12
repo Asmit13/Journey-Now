@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 const ConfirmRidePopUp = (props) => {
     const [ otp, setOtp ] = useState('')
     const navigate = useNavigate()
-
+    axios.defaults.withCredentials = true;
     const submitHander = async (e) => {
         e.preventDefault()
 

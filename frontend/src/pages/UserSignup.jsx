@@ -11,6 +11,7 @@ const UserSignup = () => {
   const [ firstName, setFirstName ] = useState('')
   const [ lastName, setLastName ] = useState('')
   const [ userData, setUserData ] = useState({})
+    axios.defaults.withCredentials = true;
 
   const navigate = useNavigate()
 
